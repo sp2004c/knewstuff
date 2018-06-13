@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(KF5_VERSION "5.43.0") # handled by release scripts
-set(KF5_DEP_VERSION "5.43.0") # handled by release scripts
+set(KF5_VERSION "5.48.0") # handled by release scripts
+set(KF5_DEP_VERSION "5.47.0") # handled by release scripts
 project(KNewStuff VERSION ${KF5_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.43.0 NO_MODULE)
+find_package(ECM 5.47.0 NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://projects.kde.org/projects/kdesupport/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
@@ -15,7 +15,7 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 
-set(REQUIRED_QT_VERSION 5.7.0)
+set(REQUIRED_QT_VERSION 5.8.0)
 find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE REQUIRED COMPONENTS Widgets Xml)
 find_package(Qt5 ${REQUIRED_QT_VERSION} NO_MODULE COMPONENTS Qml Quick)
 
@@ -141,7 +141,6 @@ install(FILES
 
 install(EXPORT KF5NewStuffTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5NewStuffTargets.cmake NAMESPACE KF5:: )
 install(EXPORT KF5NewStuffCoreTargets DESTINATION "${CMAKECONFIGCORE_INSTALL_DIR}" FILE KF5NewStuffCoreTargets.cmake NAMESPACE KF5:: )
-install(EXPORT KF5NewStuffQuickTargets DESTINATION "${CMAKECONFIGQUICK_INSTALL_DIR}" FILE KF5NewStuffQuickTargets.cmake NAMESPACE KF5:: )
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/knewstuff_version.h

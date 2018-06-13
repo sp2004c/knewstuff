@@ -24,7 +24,7 @@
 #include "downloadwidget.h"
 #include "downloadwidget_p.h"
 
-#include <QtCore/QTimer>
+#include <QTimer>
 #include <QScrollBar>
 #include <QKeyEvent>
 #include <QCoreApplication>
@@ -222,7 +222,7 @@ void DownloadWidgetPrivate::slotError(const QString &message)
 
 void DownloadWidgetPrivate::scrollbarValueChanged(int value)
 {
-    if ((double)value / ui.m_listView->verticalScrollBar()->maximum() > 0.9) {
+    if (static_cast<double>(value) / ui.m_listView->verticalScrollBar()->maximum() > 0.9) {
         engine->requestMoreData();
     }
 }

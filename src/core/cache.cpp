@@ -18,10 +18,10 @@
 
 #include "cache.h"
 
-#include <QtCore/QFile>
-#include <QtCore/QDir>
-#include <QtCore/QFileInfo>
-#include <QtCore/QXmlStreamReader>
+#include <QFile>
+#include <QDir>
+#include <QFileInfo>
+#include <QXmlStreamReader>
 #include <qstandardpaths.h>
 #include <knewstuffcore_debug.h>
 
@@ -257,7 +257,7 @@ void Cache::insertRequest(const KNSCore::Provider::SearchRequest &request, const
 
 EntryInternal::List Cache::requestFromCache(const KNSCore::Provider::SearchRequest &request)
 {
-    qCDebug(KNEWSTUFFCORE) << request.hashForRequest();
+    qDebug() << request.hashForRequest();
     return requestCache.value(request.hashForRequest());
 }
 
